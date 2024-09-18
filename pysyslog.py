@@ -49,6 +49,7 @@ def main(argv):
     logging.basicConfig(level=logging.INFO, format='%(message)s', datefmt='',
                         filename=logfile, filemode='a')
 
+    port = int(port)
     try:
         server = socketserver.UDPServer((boundip, port), SyslogUDPHandler)
         server.serve_forever(poll_interval=0.5)
